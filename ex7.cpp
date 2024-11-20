@@ -16,6 +16,10 @@ class queue
             element = new int[length];
             queueFront = queueBack = 0;
         }
+        ~queue()
+        {
+            delete[] element;
+        }
         void push(const int & theElement)
         {
             queueBack = (queueBack+1) % length;
@@ -25,7 +29,14 @@ class queue
         void pop()
         {
             queueFront = (queueFront+1)%length;
-            size--;
+            size--; 
+
+
+              
+        }
+        bool isEmpty()
+        {
+            return getsize() == 0;
         }
         int getfront()
         {
